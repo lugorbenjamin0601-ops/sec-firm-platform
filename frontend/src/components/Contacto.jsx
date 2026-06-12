@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import emailjs from '@emailjs/browser'; // Herramienta de transmisión real
 
 export default function Contacto() {
     const [nombre, setNombre] = useState('');
@@ -11,24 +12,41 @@ export default function Contacto() {
 
     const manejarEnvio = (e) => {
         e.preventDefault();
-        setCargando(true);
+        setCargando(true); 
 
-        setTimeout(() => {
+        const parametros = {
+            name: nombre,
+            correo: correo,
+            message: mensaje,
+        };
+
+        emailjs.send(
+            'service_1929mnd',
+            'template_xbf3h78',
+            parametros, 
+            'an7E8qof7kM-7amcl'
+        )
+        .then((respuesta) => {
+            console.log('[+] Transmisión exitosa:', respuesta.status, respuesta.text);
             setCargando(false);
-            setEnviado(true);
-            setNombre('');
+            setEnviado(true); 
+            setNombre('');   
             setCorreo('');
             setMensaje('');
 
             setTimeout(() => {
                 setEnviado(false);
             }, 5000);
-        }, 2000);
+        })
+        .catch((error) => {
+            console.error('[-] Error en la transmisión:', error);
+            setCargando(false);
+            alert('Fallo en la comunicación con el servidor. Intente de nuevo.');
+        });
     };
 
     return (
         <div style={{ 
-            /* Gradiente oscuro corporativo */
             backgroundImage: 'linear-gradient(to bottom, #0A0A0A 0%, #1a1a2e 100%)', 
             minHeight: '100vh', 
             color: '#f8fafc', 
@@ -37,7 +55,6 @@ export default function Contacto() {
             flexDirection: 'column'
         }}>
             
-            {/* Navegación */}
             <nav style={{ padding: '20px 40px', backgroundColor: 'rgba(10, 10, 10, 0.7)', borderBottom: '1px solid rgba(255,255,255,0.1)', backdropFilter: 'blur(10px)' }}>
                 <Link to="/" style={{ color: '#cbd5e1', textDecoration: 'none', fontSize: '14px' }}>← Volver al Inicio</Link>
             </nav>
@@ -111,7 +128,6 @@ export default function Contacto() {
                         </motion.button>
                     </form>
 
-                    {/* Este es el mensaje verde que aparece de la nada cuando se "envía" */}
                     {enviado && (
                         <motion.div 
                             initial={{ opacity: 0, y: 10 }} 
