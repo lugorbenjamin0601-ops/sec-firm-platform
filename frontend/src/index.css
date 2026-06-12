@@ -1,0 +1,32 @@
+@font-face {
+  font-family: 'EditorsNote'; /* Sin espacios */
+  src: url('/fonts/editors-note-hairline.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Quadrophonic';
+  src: url('/fonts/quadrophonic.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Donatto';
+  src: url('/fonts/donatto-regular.otf') format('opentype')  ;
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Donatto';
+  src: url('/fonts/donatto-italic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.fuentes-titulos {
+    font-family: 'Quadrophonic', sans-serif;
+    letter-spacing: 0.05em;
+}
+
+.fuente-texto {
+    font-family: 'Editors Note', serif;
+}
