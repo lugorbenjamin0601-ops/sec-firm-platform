@@ -14,7 +14,7 @@ export default function Home() {
         }}>
 
             {/* Barra de Navegación Restaurada */}
-            <nav style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '20px 40px', borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
+            <nav style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', padding: '20px 40px', borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
                 <div style={{ fontWeight: 'bold', fontSize: '20px', letterSpacing: '1px' }}>
                     <span style={{ color: '#38bdf8' }}>SEC</span><span style={{ color: '#f8fafc' }}>_FIRM</span>
                 </div>
@@ -52,7 +52,7 @@ export default function Home() {
                         fontFamily: 'Donatto, sans-serif', 
                         fontWeight: 'normal',
                         fontStyle: 'normal',
-                        fontSize: '56px', 
+                        fontSize: 'clamp(2.5rem, 8vw, 6rem)', 
                         margin: '0 0 20px 0',
                         letterSpacing: '0.02em',
                         lineHeight: '1.1'
