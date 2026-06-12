@@ -33,6 +33,7 @@
 
 * {
   box-sizing: border-box;
+  border: 1px solid red !important; /* [+] Revela la caja de cada elemento */
 }
 
 body, html, #root {
