@@ -21,17 +21,4 @@ function App() {
   );
 }
 
-/* --- BLINDAJE RESPONSIVO GLOBAL --- */
-* {
-  box-sizing: border-box;
-}
-
-body, html, #root {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  max-width: 100vw;
-  overflow-x: hidden; /* [+] Destruye el abismo blanco lateral */
-}
-
 export default App;
